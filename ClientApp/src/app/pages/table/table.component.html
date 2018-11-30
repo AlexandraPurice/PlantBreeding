@@ -1,17 +1,15 @@
-<table>
+<table class='table'>
     <thead>
         <tr>
-            <th *ngFor="let head of header">{{ head }}</th>
+            <th> No. </th>
+            <th *ngFor="let heading of headings">{{ heading.label }}</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let row of fields">
-            <td>{{ row.id }}</td>
-            <td>{{ row.title }}</td>
-            <td>{{ row.size }}</td>
-            <td>{{ row.upload }}</td>
-            <td>{{ row.result }}</td>
+        <tr *ngFor="let row of data; index as i">
+            <td>{{ i + 1}}</td>
+            <td *ngFor="let heading of headings" [style.width]="heading.width ? heading.width : ''">
+                {{ row[heading.key] }}</td>
         </tr>
-
     </tbody>
 </table>

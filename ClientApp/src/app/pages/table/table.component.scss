@@ -1,3 +1,31 @@
-tr {
-    color: blue;
+.table {
+    margin: 0 auto;
+    width: 1400px;
+}
+
+table {
+    width: 100%;
+    th {
+        border-bottom: 2px solid #9bce4e;
+        ;
+        text-align: center;
+        &:nth-child(2) {
+            text-align: left;
+        }
+    }
+    td {
+        border-bottom: 1px solid #9bce4e;
+        ;
+        text-align: center;
+        &:nth-child(2) {
+            text-align: left;
+        }
+        &:last-child {
+            text-decoration: underline;
+            text-decoration-color: #9bce4e;
+        }
+    }
+    tr:hover {
+        background-color: #E8E8E8;
+    }
 }
