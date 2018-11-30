@@ -2,12 +2,12 @@ import { NotFoundComponent } from './security/not-found/not-found.component';
 import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
+import { TableComponent } from './pages/table/table.component';
 
 const routes: Routes = [
   {
-    path: 'home',
-    component: HomeComponent
+    path: 'table',
+    component: TableComponent
   },
   {
     path: '',

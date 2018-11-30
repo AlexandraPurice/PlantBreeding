@@ -5,13 +5,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './security/not-found/not-found.component';
-import { HomeComponent } from './pages/home/home.component';
+import { TableComponent } from './pages/table/table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotFoundComponent,
-    HomeComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule,

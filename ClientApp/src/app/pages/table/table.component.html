@@ -1,0 +1,17 @@
+<table>
+    <thead>
+        <tr>
+            <th *ngFor="let head of header">{{ head }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of fields">
+            <td>{{ row.id }}</td>
+            <td>{{ row.title }}</td>
+            <td>{{ row.size }}</td>
+            <td>{{ row.upload }}</td>
+            <td>{{ row.result }}</td>
+        </tr>
+
+    </tbody>
+</table>
