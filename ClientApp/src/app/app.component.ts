@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./shared/shared.module.scss',
+  styleUrls: ['./shared/base.scss',
   './pages/table/table.component.scss'],
 
 })
