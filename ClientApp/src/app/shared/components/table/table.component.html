@@ -1,0 +1,15 @@
+<table class='table'>
+    <thead>
+        <tr>
+            <th> No. </th>
+            <th *ngFor="let heading of headings">{{ heading.label }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of data; index as i">
+            <td>{{ i + 1}}</td>
+            <td *ngFor="let heading of headings" [style.width]="heading.width ? heading.width : ''">
+                {{ row[heading.key] }}</td>
+        </tr>
+    </tbody>
+</table>
