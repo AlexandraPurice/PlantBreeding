@@ -1,0 +1,32 @@
+@import "../../shared/variables.scss";
+.table {
+    margin: 0 auto;
+    width: 1400px;
+}
+
+table {
+    width: 100%;
+    th {
+        border-bottom: 2px solid $primaryColor;
+        ;
+        text-align: center;
+        &:nth-child(2) {
+            text-align: left;
+        }
+    }
+    td {
+        border-bottom: 1px solid $primaryColor;
+        ;
+        text-align: center;
+        &:nth-child(2) {
+            text-align: left;
+        }
+        &:last-child {
+            text-decoration: underline;
+            text-decoration-color: $primaryColor;
+        }
+    }
+    tr:hover {
+        background-color: $hoverColor;
+    }
+}
