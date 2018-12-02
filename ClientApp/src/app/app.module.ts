@@ -5,13 +5,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './security/not-found/not-found.component';
-import { TableComponent } from './pages/table/table.component';
+import { ViewGenomsComponent } from './pages/view-genoms/view-genoms.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotFoundComponent,
-    TableComponent,
+    ViewGenomsComponent,
   ],
   imports: [
     BrowserModule,
