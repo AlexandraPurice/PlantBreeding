@@ -2,6 +2,7 @@ import { NotFoundComponent } from './security/not-found/not-found.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ViewGenomsComponent } from './pages/view-genoms/view-genoms.component';
+import { UploadGenomsComponent } from './pages/upload-genoms/upload-genoms.component';
 
 const routes: Routes = [
   {
@@ -9,8 +10,12 @@ const routes: Routes = [
     component: ViewGenomsComponent
   },
   {
+    path: 'upload-genoms',
+    component: UploadGenomsComponent
+  },
+  {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'view-genoms',
     pathMatch: 'full'
   },
   {

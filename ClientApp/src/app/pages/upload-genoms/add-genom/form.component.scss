@@ -1,0 +1,29 @@
+ @import '../../../shared/styles/variables.scss';
+ .uploadBox {
+     text-align: center;
+     width: 450px;
+     height: 450px;
+     h2 {
+         padding-top: 20%;
+     }
+     .myfile {
+         width: 50%;
+         margin-top: 10%;
+     }
+     .btn {
+         color: $secondaryColor;
+         background-color: $primaryColor;
+         border-radius: 35px;
+         display: block;
+         margin: 10% auto;
+         padding: 15px;
+         &:hover {
+             background-color: $secondaryColor;
+             color: $primaryColor;
+             border: 1px solid $primaryColor;
+         }
+     }
+     #choose {
+         display: none;
+     }
+ }
