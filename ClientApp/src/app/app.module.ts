@@ -15,7 +15,7 @@ import { UploadGenomsComponent } from './pages/upload-genoms/upload-genoms.compo
     NotFoundComponent,
     ViewGenomsComponent,
     UploadGenomsComponent,
-    FormComponent
+    FormComponent,
   ],
   imports: [
     BrowserModule,
