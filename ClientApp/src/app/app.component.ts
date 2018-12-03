@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GenomService } from './services/genom.service'
 
 @Component({
   selector: 'app-root',
