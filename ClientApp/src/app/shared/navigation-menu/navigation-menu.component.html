@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="navbar">
+
+  <div id="currentPage" *ngIf="this.route === '/upload-genoms'">
+      Upload Genoms
+  </div>
+  <div id="currentPage" *ngIf="this.route === '/view-genoms'">
+      View Genoms
+  </div>
+</div>
+<div class="dropdown">
+
+    <button class="dropbtn">
+        <div></div>
+        <div></div>
+        <div></div>
+    </button>
+    <div class="dropdown-content">
+      <a routerLink="/upload-genoms"><i class="fa fa-leaf" style="font-size:20px;color:#9bce4e"></i>      ADD GENOMS</a>
+      <a routerLink="/view-genoms"><span class="glyphicon" style="font-size:20px;color:#9bce4e">&#xe056;</span>      VIEW GENOMS</a>
+    </div>
+  </div>
+
+</body>
+</html>

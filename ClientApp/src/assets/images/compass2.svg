@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="699.93" height="499.95" viewBox="0 0 2100 1500">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #9bce4e;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke: #000;
+        stroke-width: 4.68px;
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: #d7d7d7;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <path id="Polygon_1" data-name="Polygon 1" class="cls-1" d="M1109,675.006L1067.54,769l-39.53-31.041Z"/>
+  <path id="Polygon_1_copy" data-name="Polygon 1 copy" class="cls-2" d="M990,824.994L1033,731l40.99,31.041Z"/>
+  <path class="cls-3" d="M1050.7,731c11.97,0,21.8,7.98,22.31,18.029,0.52,10.283-8.85,19.3-21.32,19.935-12.9.659-23.69-7.863-23.69-18.81C1028,739.472,1038.33,731,1050.7,731Z"/>
+</svg>

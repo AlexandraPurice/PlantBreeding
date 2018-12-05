@@ -1,22 +1,31 @@
 import { NotFoundComponent } from './security/not-found/not-found.component';
-import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
+import { ViewGenomsComponent } from './pages/view-genoms/view-genoms.component';
+import { UploadGenomsComponent } from './pages/upload-genoms/upload-genoms.component';
 
 const routes: Routes = [
   {
-    path: 'home',
-    component: HomeComponent
+    path: 'view-genoms',
+    component: ViewGenomsComponent
+  },
+  {
+    path: 'upload-genoms',
+    component: UploadGenomsComponent
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'view-genoms',
     pathMatch: 'full'
   },
   {
-    path: '**',
+    path: 'not-found',
     component: NotFoundComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'not-found',
+    pathMatch: 'full'
   }
 ];
 

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="699.93" height="499.95" viewBox="0 0 2100 1500">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #e1e1e1;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke: #000;
+        stroke-width: 4.68px;
+      }
+
+      .cls-2 {
+        fill: #ccc;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-3, .cls-4 {
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <rect id="Rounded_Rectangle_2" data-name="Rounded Rectangle 2" class="cls-1" x="1007" y="415" width="85" height="56" rx="10" ry="10"/>
+  <rect id="Rounded_Rectangle_1" data-name="Rounded Rectangle 1" class="cls-2" x="958" y="354" width="184" height="69" rx="10" ry="10"/>
+  <circle class="cls-2" cx="1050" cy="750" r="300"/>
+  <path id="Ellipse_1_copy" data-name="Ellipse 1 copy" class="cls-3" d="M1049,507.242c132.51-.447,239.93,107.877,239.93,241.949S1181.51,992.311,1049,992.758,809.075,884.881,809.075,750.809,916.493,507.689,1049,507.242Z"/>
+  <path class="cls-4" d="M1049,549h1v51h-1V549Z"/>
+  <path class="cls-4" d="M1050,951h-1V900h1v51Z"/>
+  <path class="cls-4" d="M847,750v-1h53v1H847Z"/>
+  <path class="cls-4" d="M1257,749v1h-57v-1h57Z"/>
+  <path class="cls-4" d="M1146.35,652.36l-0.7-.72,54-52,0.7,0.72Z"/>
+  <path class="cls-4" d="M955.354,654.646l-0.708.708-55-55,0.708-.708Z"/>
+  <path class="cls-4" d="M954.643,843.65l0.714,0.7-55,56-0.714-.7Z"/>
+  <path class="cls-4" d="M1136.66,842.368l0.68-.736,63,58-0.68.736Z"/>
+</svg>
