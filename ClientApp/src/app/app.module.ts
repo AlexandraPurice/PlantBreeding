@@ -10,6 +10,7 @@ import { ViewGenomsComponent } from './pages/view-genoms/view-genoms.component';
 import { UploadGenomsComponent } from './pages/upload-genoms/upload-genoms.component';
 import { NavigationMenuComponent } from './shared/navigation-menu/navigation-menu.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ViewEffectsComponent } from './pages/view-effects/view-effects.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UploadGenomsComponent,
     FormComponent,
     NavigationMenuComponent,
+    ViewEffectsComponent,
   ],
   imports: [
     BrowserModule,
