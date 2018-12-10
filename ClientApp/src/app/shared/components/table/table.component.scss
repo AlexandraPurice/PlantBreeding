@@ -1,23 +1,18 @@
 @import "../../styles/variables.scss";
-
-.list-layout{
+.list-layout {
     display: flex;
     flex-wrap: wrap;
-
-    .sort{
+    .sort {
         width: 100%;
-        margin:5px;
-
-        .sort-text{
-            margin:5px;
+        margin: 5px;
+        .sort-text {
+            margin: 5px;
         }
     }
-    
     .table {
         margin: 0 auto;
         width: 1400px;
     }
-    
     table {
         width: 100%;
         th {
@@ -40,9 +35,8 @@
                 text-decoration-color: $primaryColor;
             }
         }
-        tr:hover {
+        tbody tr:hover {
             background-color: $hoverColor;
         }
     }
-    
 }
