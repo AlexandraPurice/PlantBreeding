@@ -1,3 +1,4 @@
+import { ViewGenesComponent } from './pages/view-genes/view-genes.component';
 import { NotFoundComponent } from './security/not-found/not-found.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'upload-genoms',
     component: UploadGenomsComponent
+  },
+  {
+    path: 'view-genes',
+    component: ViewGenesComponent
   },
   {
     path: '',
