@@ -13,6 +13,11 @@
     padding: 14px 16px;
     text-decoration: none;
 }
+#logo {
+    position: absolute;
+    float: right;
+    right: 0;
+}
 
 .dropdown {
     float: left;
@@ -62,4 +67,12 @@
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+@media only screen and (max-width: 640px)
+{
+    #logo
+    {
+        display: none;
+    }
 }

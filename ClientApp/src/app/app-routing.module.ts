@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ViewGenomsComponent } from './pages/view-genoms/view-genoms.component';
 import { UploadGenomsComponent } from './pages/upload-genoms/upload-genoms.component';
+import { ViewEffectsComponent } from './pages/view-effects/view-effects.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
     path: '',
     redirectTo: 'view-genoms',
     pathMatch: 'full'
+  },
+  {
+    path: ':id/view-effects',
+    component: ViewEffectsComponent
   },
   {
     path: 'not-found',
