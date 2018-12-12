@@ -1,6 +1,8 @@
+import { Genome } from './../Genome';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,15 +10,17 @@ import { of } from 'rxjs';
 export class GenomService {
 
   private genomData = [];
+  private API_URL = '';
 
-  constructor() { }
+  constructor(private http: HttpClient) {
+   }
 
   sendFile($file): Observable<boolean> {
       return of(false);
   }
 
   getData(): Observable<any[]> {
-      return of(this.genomData);
+      return this.http.get<Array<Genome>>(this.API_URL + '/GetAllGenomes');
   }
 
 }
