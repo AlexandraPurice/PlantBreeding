@@ -20,7 +20,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'view-effects',
+    path: ':id/view-effects',
     component: ViewEffectsComponent
   },
   {
