@@ -1,32 +1,42 @@
 @import "../../styles/variables.scss";
-.table {
-    margin: 0 auto;
-    width: 1400px;
-}
-
-table {
-    width: 100%;
-    th {
-        border-bottom: 2px solid $primaryColor;
-        ;
-        text-align: center;
-        &:nth-child(2) {
-            text-align: left;
+.list-layout {
+    display: flex;
+    flex-wrap: wrap;
+    .sort {
+        width: 100%;
+        margin: 5px;
+        .sort-text {
+            margin: 5px;
         }
     }
-    td {
-        border-bottom: 1px solid $primaryColor;
-        ;
-        text-align: center;
-        &:nth-child(2) {
-            text-align: left;
-        }
-        &:last-child {
-            text-decoration: underline;
-            text-decoration-color: $primaryColor;
-        }
+    .table {
+        margin: 0 auto;
+        width: 1400px;
     }
-    tr:hover {
-        background-color: $hoverColor;
+    table {
+        width: 100%;
+        th {
+            border-bottom: 2px solid $primaryColor;
+            ;
+            text-align: center;
+            &:nth-child(2) {
+                text-align: left;
+            }
+        }
+        td {
+            border-bottom: 1px solid $primaryColor;
+            ;
+            text-align: center;
+            &:nth-child(2) {
+                text-align: left;
+            }
+            &:last-child {
+                text-decoration: underline;
+                text-decoration-color: $primaryColor;
+            }
+        }
+        tbody tr:hover {
+            background-color: $hoverColor;
+        }
     }
 }
