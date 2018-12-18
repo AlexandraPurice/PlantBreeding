@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { GeneModel } from '../shared/models/gene-model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,8 @@ export class GenomService {
 
   private genomData = [];
   private API_URL = '';
+  genes: Array<GeneModel>;
+  // de pus datele primite aici dupa upload
 
   constructor(private http: HttpClient) {
    }

@@ -7,7 +7,6 @@ import { GeneModel } from '../shared/models/gene-model';
 })
 export class GeneService {
 
-  genes: Array<GeneModel>;
   effects: Array<EffectModel>;
   constructor() { }
 }
