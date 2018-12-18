@@ -1,21 +1,18 @@
 <div class="list-layout">
-    <div class="sort d-flex justify-content-end">
-        <button (click)="sortAscByKey(data, 'date')">Sort List Ascending by Date</button>
-        <button (click)="sortDescByKey(data, 'date')">Sort List Descending by Date</button>
-    </div>
-    <table class='table'>
-        <thead>
-            <tr>
-                <th> No. </th>
-                <th *ngFor="let heading of headings">{{ heading.label }}</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let row of data; index as i">
-                <td>{{ i + 1 }}</td>
-                <td *ngFor="let heading of headings" [style.width]="heading.width ? heading.width : ''">
-                    {{ row[heading.key] }}</td>
-            </tr>
-        </tbody>
-    </table>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th> No. </th>
+        <th *ngFor="let heading of headings">{{ heading.label }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of data; index as i">
+        <td>{{ i + 1 }}</td>
+        <td *ngFor="let heading of headings" [style.width]="heading.width ? heading.width : ''">
+          <a *ngIf="heading.link" [routerLink]="[heading.link]">{{ row[heading.key] }}</a>
+          <a *ngIf="!heading.link">{{ row[heading.key] }}</a></td>
+      </tr>
+    </tbody>
+  </table>
 </div>

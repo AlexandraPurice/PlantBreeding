@@ -11,7 +11,7 @@ export class ViewGenesComponent implements OnInit {
     { key: 'length', label: 'Length', width: '15%'},
     { key: 'proteinDescription', label: 'Protein description', width: '25%'},
     { key: 'graph', label: 'Graph', width: '15%' },
-    { key: 'effects', label: 'Effects', width: '15%' }
+    { key: 'effects', label: 'Effects', width: '15%', link: './view-effects' }
 
   ];
 
