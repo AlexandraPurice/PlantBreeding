@@ -25,7 +25,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'view-genes/view-effects',
+    path: 'view-genes/view-effects/:id',
     component: ViewEffectsComponent
   },
   {
