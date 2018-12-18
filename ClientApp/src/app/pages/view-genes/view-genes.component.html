@@ -2,20 +2,20 @@
 
     <article class="space">
         <h4 class="inline">Sort by:</h4>
-        <select class="inline">
-          <option value="name1">Date descending</option>
-          <option value="name2">Date ascending</option>
+        <select class="inline" [(ngModel)]='model'>
+          <option value="idAsc" selected="selected">Id Ascending</option>
+          <option value="idDesc">Id Descending</option>
         </select>
 
         <h4 class="inline">Filter by name:</h4>
         <form class="inline">
-            <input type="text" placeholder="Search.." name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
+            <input #filters type="text" placeholder="Search.." name="search">
+            <button type="submit" (click)="changeFilter(filters.value)"><i class="fa fa-search"></i></button>
         </form>
 
     </article>
 
-    <app-table [headings]='headings' [data]='dataTable'></app-table>
+    <app-table [headings]='headings' [data]="orderBy(model)"></app-table>
 
     <article class="space">
         <h4 class="inline">Item per page:</h4>

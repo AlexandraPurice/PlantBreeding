@@ -1,3 +1,6 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { GenomService } from './services/genom.service';
+import { GeneService } from './services/gene.service';
 import { FormComponent } from './pages/upload-genoms/add-genom/form.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -30,9 +33,10 @@ import { ViewEffectsComponent } from './pages/view-effects/view-effects.componen
     AppRoutingModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [GeneService, GenomService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
