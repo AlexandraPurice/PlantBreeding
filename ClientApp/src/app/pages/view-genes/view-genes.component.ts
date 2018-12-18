@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GeneModel } from 'src/app/shared/models/gene-model';
 
 @Component({
   selector: 'app-view-genes',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-genes.component.scss']
 })
 export class ViewGenesComponent implements OnInit {
+  genes: Array<GeneModel>;
+  // de pus datele primite aici
   headings = [
     { key: 'id', label: 'Id', width: '25%' },
     { key: 'name', label: 'Name', width: '25%' },

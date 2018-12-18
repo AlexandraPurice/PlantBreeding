@@ -12,8 +12,7 @@ export class GenomService {
 
   private genomData = [];
   private API_URL = '';
-  genes: Array<GeneModel>;
-  // de pus datele primite aici dupa upload
+
 
   constructor(private http: HttpClient) {
    }

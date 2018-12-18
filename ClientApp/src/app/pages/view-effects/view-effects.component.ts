@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { EffectModel } from 'src/app/shared/models/effect-model';
 
 @Component({
   selector: 'app-view-effects',
@@ -7,7 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./view-effects.component.scss']
 })
 export class ViewEffectsComponent implements OnInit {
-
+  effects: Array<EffectModel>;
   gene = {
     name: 'BnaA01g00030D',
     chr: 'A01',
