@@ -1,3 +1,4 @@
+import { GenomService } from './../../services/genom.service';
 import { Component, OnInit } from '@angular/core';
 import { GeneModel } from 'src/app/shared/models/gene-model';
 
@@ -11,21 +12,24 @@ export class ViewGenesComponent implements OnInit {
   // de pus datele primite aici
   headings = [
     { key: 'id', label: 'Id', width: '25%' },
-    { key: 'name', label: 'Name', width: '25%' },
     { key: 'length', label: 'Length', width: '15%' },
     { key: 'proteinDescription', label: 'Protein description', width: '25%' },
     { key: 'effects', label: 'Effects', width: '15%', link: './view-effects' }
   ];
 
   dataTable = [
-    { id: '1', name: 'Name 1', length: '92', proteinDescription: 'signam peptidase subunit-12', effects: 'View effects' },
-    { id: '2', name: 'Name 2', length: '169', proteinDescription: 'tpa: protein kinase', effects: 'View effects' },
-    { id: '3', name: 'Name 3', length: '614', proteinDescription: 'protein scai-like', effects: 'View effects' },
-    { id: '4', name: 'Name 4', length: '368', proteinDescription: 'kelc repeat-containing f-box ', effects: 'View effects' },
-    { id: '5', name: 'Name 5', length: '296', proteinDescription: 'homeodomain-like protein', effects: 'View effects' }
+    { id: '1',  length: '92', proteinDescription: 'signam peptidase subunit-12', effects: 'View effects' },
+    { id: '2',  length: '169', proteinDescription: 'tpa: protein kinase', effects: 'View effects' },
+    { id: '3', length: '614', proteinDescription: 'protein scai-like', effects: 'View effects' },
+    { id: '4',  length: '368', proteinDescription: 'kelc repeat-containing f-box ', effects: 'View effects' },
+    { id: '5',  length: '296', proteinDescription: 'homeodomain-like protein', effects: 'View effects' }
   ];
 
-  constructor() {}
+  constructor(private _genomService: GenomService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this._genomService.getGenes().subscribe(data => {
+      this.genes = data;
+    });
+  }
 }
