@@ -1,19 +1,21 @@
 <section class="effect">
-    <h1> Gene {{gene.name}}</h1>
-    <section class="flex-section">
-        <article class="section">
-            <h2>Location</h2>
-            <p> Chromosome: {{ gene.chr }} </p>
-            <p> Position start: {{ gene.startN }} </p>
-            <p> Position stop: {{ gene.stopN }} </p>
-        </article>
-        <article class="section">
-            <h2>Protein description</h2>
-            <p> {{ gene.description }} </p>
-        </article>
-        <article class="section">
-            <h2>Role</h2>
-            <p> {{ gene.effect }} </p>
-        </article>
-    </section>
+  <h1> Gene {{gene.name}}</h1>
+  <section class="d-flex justify-content-center">
+    <article class="section mr-2">
+      <h2>Location</h2>
+      <p> Chromosome: {{ gene.chr }} </p>
+      <p> Position start: {{ gene.startN }} </p>
+      <p> Position stop: {{ gene.stopN }} </p>
+    </article>
+    <article class="section">
+      <h2>Description</h2>
+      <p> {{ gene.description }} </p>
+    </article>
+  </section>
+  <div class="d-flex justify-content-center">
+    <article class="section section-big mt-2">
+      <h2>Effects</h2>
+      <p *ngFor="let effect of effects"> {{ effect.effect }} </p>
+    </article>
+  </div>
 </section>
