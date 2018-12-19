@@ -4,6 +4,14 @@
      width: 450px;
      height: 450px;
      margin: auto;
+    .genom-name{
+        background-color:$primaryColor;
+        border-radius: 3px;
+        margin-left: 100px;
+        margin-top:20px;
+        color: $secondaryColor;
+    }
+
      h2 {
          padding-top: 20%;
      }
