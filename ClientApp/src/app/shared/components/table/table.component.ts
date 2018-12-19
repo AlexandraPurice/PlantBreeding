@@ -11,6 +11,7 @@ export class TableComponent {
   @Input() headings;
   @Input() data;
   selectedValue: string;
+  itemsPerPage = 2;
 
   constructor() { }
 

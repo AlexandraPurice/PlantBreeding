@@ -15,6 +15,7 @@ import { NavigationMenuComponent } from './shared/navigation-menu/navigation-men
 import { ViewGenesComponent } from './pages/view-genes/view-genes.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ViewEffectsComponent } from './pages/view-effects/view-effects.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { ViewEffectsComponent } from './pages/view-effects/view-effects.componen
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [GeneService, GenomService],
   bootstrap: [AppComponent]
