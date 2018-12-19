@@ -1,20 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { EventHandlerVars } from '@angular/compiler/src/compiler_util/expression_converter';
-import { SubjectSubscriber } from 'rxjs/internal/Subject';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
-export class FormComponent implements OnInit {
+export class FormComponent {
 
   constructor() { }
-  chooseFile() {
-       document.getElementById('choose').click();
-  }
-  ngOnInit() {
-
+ 
+  updateFile(file: HTMLInputElement) {
+    let name = file.value;
   }
 
 }
