@@ -13,7 +13,7 @@
         justify-content: space-between;
     }
     .section {
-        flex-basis: 30%;
+        width: 300px;
         border: 1px solid $primaryColor;
         font-size: 16px;
         h2 {
@@ -27,4 +27,8 @@
             padding: 10px 20px;
         }
     }
+}
+
+.canvas-container {
+    overflow-x: scroll;
 }
