@@ -27,8 +27,11 @@
             padding: 10px 20px;
         }
     }
-
     .section-big {
-      width: 610px;
+        width: 610px;
     }
+}
+
+.canvas-container {
+    overflow-x: scroll;
 }
