@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { SortPipe } from './components/pipes/sort-pipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     RouterModule,
     BrowserModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   exports: [
     TableComponent
