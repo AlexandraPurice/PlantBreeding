@@ -3,6 +3,8 @@ import { TableComponent } from './components/table/table.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SortPipe } from './components/pipes/sort-pipe';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -11,7 +13,9 @@ import { SortPipe } from './components/pipes/sort-pipe';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    BrowserModule,
+    FormsModule
   ],
   exports: [
     TableComponent
