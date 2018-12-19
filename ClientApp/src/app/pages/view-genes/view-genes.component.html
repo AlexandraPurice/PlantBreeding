@@ -1,0 +1,20 @@
+<section class="find">
+
+    <article class="space">
+        <h4 class="inline">Sort by:</h4>
+        <select class="inline" [(ngModel)]='model'>
+          <option value="idAsc" selected="selected">Id Ascending</option>
+          <option value="idDesc">Id Descending</option>
+        </select>
+
+        <h4 class="inline">Filter by name:</h4>
+        <form class="inline">
+            <input #filters type="text" placeholder="Search.." name="search">
+            <button type="submit" (click)="changeFilter(filters.value)"><i class="fa fa-search"></i></button>
+        </form>
+
+    </article>
+
+    <app-table [headings]='headings' [data]="orderBy(model)"></app-table>
+    
+</section>

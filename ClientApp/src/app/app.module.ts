@@ -1,3 +1,7 @@
+import { NgxPaginationModule } from 'ngx-pagination';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { GenomService } from './services/genom.service';
+import { GeneService } from './services/gene.service';
 import { FormComponent } from './pages/upload-genoms/add-genom/form.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -9,7 +13,9 @@ import { NotFoundComponent } from './security/not-found/not-found.component';
 import { ViewGenomsComponent } from './pages/view-genoms/view-genoms.component';
 import { UploadGenomsComponent } from './pages/upload-genoms/upload-genoms.component';
 import { NavigationMenuComponent } from './shared/navigation-menu/navigation-menu.component';
+import { ViewGenesComponent } from './pages/view-genes/view-genes.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ViewEffectsComponent } from './pages/view-effects/view-effects.component';
 
 
 @NgModule({
@@ -20,15 +26,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UploadGenomsComponent,
     FormComponent,
     NavigationMenuComponent,
+    ViewGenesComponent,
+    ViewEffectsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    NgxPaginationModule
   ],
-  providers: [],
+  providers: [GeneService, GenomService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

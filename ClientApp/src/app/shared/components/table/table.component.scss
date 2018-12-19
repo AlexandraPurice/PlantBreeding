@@ -1,23 +1,18 @@
 @import "../../styles/variables.scss";
-
-.list-layout{
+.list-layout {
     display: flex;
     flex-wrap: wrap;
-
-    .sort{
+    .sort {
         width: 100%;
-        margin:5px;
-
-        .sort-text{
-            margin:5px;
+        margin: 5px;
+        .sort-text {
+            margin: 5px;
         }
     }
-    
     .table {
         margin: 0 auto;
         width: 1400px;
     }
-    
     table {
         width: 100%;
         th {
@@ -40,9 +35,33 @@
                 text-decoration-color: $primaryColor;
             }
         }
-        tr:hover {
+        tbody tr:hover {
             background-color: $hoverColor;
         }
     }
-    
+}
+
+.inline {
+    display: inline;
+    margin-left: 10px;
+}
+.next {
+    padding: 0px 6px;
+    color: $primaryColor;
+}
+.space {
+    margin: 20px 0;
+}
+
+
+.pagination-width {
+  width: 400px;
+}
+
+.weight-small {
+  width: 140px;
+}
+
+.height {
+  height: 50px;
 }
