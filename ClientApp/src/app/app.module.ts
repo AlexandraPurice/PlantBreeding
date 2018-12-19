@@ -1,3 +1,4 @@
+import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { GenomService } from './services/genom.service';
 import { GeneService } from './services/gene.service';
@@ -34,7 +35,8 @@ import { ViewEffectsComponent } from './pages/view-effects/view-effects.componen
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [GeneService, GenomService],
   bootstrap: [AppComponent]

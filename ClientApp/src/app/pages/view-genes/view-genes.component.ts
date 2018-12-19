@@ -25,11 +25,46 @@ export class ViewGenesComponent implements OnInit {
     { id: '5',  length: '296', proteinDescription: 'homeodomain-like protein', effects: 'View effects' }
   ];
 
+  model: string = null;
+  filter = '';
+  filteredArray = this.dataTable;
+
   constructor(private _genomService: GenomService) {}
 
   ngOnInit() {
     this._genomService.getGenes().subscribe(data => {
       this.genes = data;
     });
+  }
+
+
+  orderBy(field: string) {
+    let data = [];
+    data = this.filteredArray;
+    if (field === 'idAsc') {
+      return data.sort((a, b) => a[field] > b[field] ? 1 : a[field] === b[field] ? 0 : -1);
+    }
+    if (field === 'idDesc') {
+      return data.sort((a, b) => a[field] < b[field] ? 1 : a[field] === b[field] ? -1 : 0);
+    }
+    return data;
+  }
+
+  filterNow() {
+    this.filteredArray = [];
+    if (this.filter === '') {
+      this.filteredArray = this.dataTable;
+    } else {
+      for (let value of this.dataTable) {
+        if (value.id.indexOf(this.filter) > -1) {
+          this.filteredArray.push(value);
+        }
+      }
+    }
+  }
+
+  changeFilter(value: string) {
+    this.filter = value;
+    this.filterNow();
   }
 }

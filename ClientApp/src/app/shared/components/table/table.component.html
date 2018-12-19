@@ -7,7 +7,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of data; index as i">
+      <tr *ngFor="let row of data | paginate: { itemsPerPage: itemsPerPage, currentPage: p }; index as i">
         <td>{{ i + 1 }}</td>
         <td *ngFor="let heading of headings" [style.width]="heading.width ? heading.width : ''">
           <a *ngIf="heading.link == './view-effects'" [routerLink]="[heading.link, row.id]">{{ row[heading.key] }}</a>
@@ -15,5 +15,18 @@
           <a *ngIf="!heading.link">{{ row[heading.key] }}</a></td>
       </tr>
     </tbody>
+    <article class="space">
+      <h4 class="inline">Items per page:</h4>
+      <select [(ngModel)]="itemsPerPage" class="inline">
+        <option value="2">2</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="50">50</option>
+      </select>
+
+      <pagination-controls class="inline" (pageChange)="p = $event">
+      </pagination-controls>
+    </article>
   </table>
 </div>
