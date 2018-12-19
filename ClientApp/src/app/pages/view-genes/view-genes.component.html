@@ -5,6 +5,10 @@
         <select class="inline" [(ngModel)]='model'>
           <option value="idAsc" selected="selected">Id Ascending</option>
           <option value="idDesc">Id Descending</option>
+          <option value="lengthAsc">Length Ascending</option>
+          <option value="lengthDesc">Length Descending</option>
+          <option value="proteinAsc">Protein Description A-Z</option>
+          <option value="proteinDesc">Protein Description Z-A</option>
         </select>
 
         <h4 class="inline">Filter by name:</h4>
@@ -16,5 +20,5 @@
     </article>
 
     <app-table [headings]='headings' [data]="orderBy(model)"></app-table>
-    
+
 </section>

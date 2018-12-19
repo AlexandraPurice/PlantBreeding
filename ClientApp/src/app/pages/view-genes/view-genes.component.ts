@@ -37,7 +37,6 @@ export class ViewGenesComponent implements OnInit {
     });
   }
 
-
   orderBy(field: string) {
     let data = [];
     data = this.filteredArray;
@@ -47,8 +46,21 @@ export class ViewGenesComponent implements OnInit {
     if (field === 'idDesc') {
       return data.sort((a, b) => a[field] < b[field] ? 1 : a[field] === b[field] ? -1 : 0);
     }
+    if (field === 'lengthAsc') {
+      return data.sort((a, b) => a[field] > b[field] ? 1 : a[field] === b[field] ? 0 : -1);
+    }
+    if (field === 'lengthDesc') {
+      return data.sort((a, b) => a[field] < b[field] ? 1 : a[field] === b[field] ? -1 : 0);
+    }
+    if (field === 'proteinAsc') {
+      return data.sort((a, b) => a[field] > b[field] ? 1 : a[field] === b[field] ? 0 : -1);
+    }
+    if (field === 'proteinDesc') {
+      return data.sort((a, b) => a[field] < b[field] ? 1 : a[field] === b[field] ? -1 : 0);
+    }
     return data;
   }
+
 
   filterNow() {
     this.filteredArray = [];
