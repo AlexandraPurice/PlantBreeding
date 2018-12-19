@@ -15,8 +15,8 @@
           <a *ngIf="!heading.link">{{ row[heading.key] }}</a></td>
       </tr>
     </tbody>
-    <article class="space">
-      <h4 class="inline">Items per page:</h4>
+    <article class="d-flex justify-content-center align-content-center mt-5">
+      <h4 class="weight-small">Items per page:</h4>
       <select [(ngModel)]="itemsPerPage" class="inline">
         <option value="2">2</option>
         <option value="5">5</option>
@@ -25,7 +25,7 @@
         <option value="50">50</option>
       </select>
 
-      <pagination-controls class="inline" (pageChange)="p = $event">
+      <pagination-controls class="d-flex pagination-width m-0 mt-2" (pageChange)="p = $event">
       </pagination-controls>
     </article>
   </table>
