@@ -1,4 +1,7 @@
 export class GeneModel {
-  id: string;
+  id: number;
+  start: string;
+  stop: string;
+  length: string;
   gene: string;
 }

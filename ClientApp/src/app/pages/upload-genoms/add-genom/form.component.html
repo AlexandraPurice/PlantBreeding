@@ -1,7 +1,7 @@
 <div class="uploadBox">
     <form>
         <h2>Add a genom here</h2>
-        <input class="genom-name" type="file" (change)="updateFile(file)">
-        <button class="btn">Upload</button>
+        <input class="genom-name" type="file" #input (change)="updateFile($file)">
+        <button class="btn" (click)="submit(input.files[0])">Upload</button>
     </form>
 </div>
