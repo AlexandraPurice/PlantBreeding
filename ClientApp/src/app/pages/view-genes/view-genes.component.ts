@@ -9,7 +9,6 @@ import { GeneModel } from 'src/app/shared/models/gene-model';
 })
 export class ViewGenesComponent implements OnInit {
   genes: Array<GeneModel>;
-  // de pus datele primite aici
   headings = [
     { key: 'id', label: 'Id', width: '25%' },
     { key: 'length', label: 'Length', width: '15%' },

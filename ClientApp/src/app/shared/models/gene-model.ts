@@ -1,7 +1,12 @@
 export class GeneModel {
-  id: number;
+  id: string;
   start: string;
   stop: string;
   length: string;
   gene: string;
+}
+
+export class EffectModel {
+    id: string;
+    gene: string
 }

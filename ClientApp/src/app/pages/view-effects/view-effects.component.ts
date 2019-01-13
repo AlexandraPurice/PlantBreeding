@@ -1,7 +1,11 @@
 import { GeneService } from './../../services/gene.service';
+import { GenomService } from './../../services/genom.service';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { EffectModel } from 'src/app/shared/models/effect-model';
+import { GeneModel } from 'src/app/shared/models/gene-model';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators'
 
 @Component({
   selector: 'app-view-effects',
@@ -19,25 +23,41 @@ export class ViewEffectsComponent implements OnInit, AfterViewInit{
     effect: 'P: termination of F-protein coupled receptor signaling pathway',
     geneCode: 'ATGGCTACTGGAGAAAACAGAACCGTGCAGGAAAATCTAAAGAAACACCTCGCAGTTTCAGTTCGAAACATTCAATGGAGTTATGGAATATTTTGGTCTATCTCTGCTTCTCAACCAGGAGTGCTGGAATGGGGAGATGGATACTACAATGGAGACATTAAGACGAGGAAGACGATTCAAGCAGTGGAAGTCAAAGCTGACCAGTTGGGTCTTGAGAGAAGCGATCAGCTTAGAGAGCTTTATGAATCTCTCTCGGTCGCGGAATCCTCAGCCTCCGGTGGCTCTCAGGTCAGTAGACGAGCTTCCGCTACCGCTCTCTCTCCGGAAGATCTCACCGACACCGAGTGGTACTACCTAGTATGCATGTCTTTCGTCTTCAACATTGGTGAAGGAATTACCGGAGGAGCATTAGGGAACGGAGAACCAATATGGCTATGTAACGCTCATACCGCCGACAGCAAAGTCTTTACTCGCTCTCTTCTCGCTAAAAGTGCTTCGCTTCTGACAGTAGTTTGCTTCCCATTTCTTGGAGGAGTCCTTGAGATCGGCACAACCGAACATATTACAGAGGACTTTAACGTGATTCAATGCGTGAAGACATTATTCCTTGAGGCTCATCCTTATGGAACTATATCAACGAGATCTGATTATCAAGAAATATTTGATCCTTTAAACAGCGATAAGTACATTCCAACGTTTGGAACTGAAGCTTTTCCGACAACTTCTACAAGCGTGTTTGAACAAGAACTAGAGGATCATGATTCGTTCATCAACGGTGGTGGTGCGTCTCAGGTACAAAGCTGGCAGTTTGTGGGTGAAGAACTCAATAACTGCGTTCACCAACCGGTTAATTCTAGCGATTGCGTTTCCCAGACGTTTGTTGGAGGAACAACCGGAAGAGTTTCTTGTAATCCAAGAAAGAGCAGGCCTCAACGGTTAGGTCAAATCCAAGAACAGAGTAACCGTTTGAATATGGACGATGATGTTCATTACCAAGGGGTGATCTCGACAATATTCAAAACAACGCATCAGCTAGTTCTTGGACCGCAATTTCAGAACTTTGATAAGCGGTCAAGTTTCACGCGGTGGAGGCGGTTGCCATTATCAGCAAAAACATTGGGAGAGAAGTCGCAAAACATGTTAAAGAAGATTGTTTTTGAGGTTCCTCGGATGCACCAGAAGGAGTTGTTGTTACCAGACACACCTGAAGATAACATGTTTAAGGTTGGGGATGAAACCGGGAACCATGCCTTGTCCGAGAGGAAATGCCGAGAGAAGTTGAATGATCGGTTCATGACGTTGAGATCAATCATTCCTTCGATTAGTAAGATCGATAAAGTGTCGATTCTTGATGATACGATTGATTATCTTCAAGAACTGCAAAGACGGGTTCAAGAATTGGAATCTTGCCGAGAATATACCGATACAGAGATGCAAATGCCTATGAAGAGGAAGAAACCGGAGGATGAAGATGAGAGAGCATCGGCTAATTGTTTGAACACCAAGAGGAAGGAGAGTGATGTGAACGTAGGAGAAGATGAACCAGCTGATACCGGTTATGCTGGTTTAACTGATAATCTAAGGATCGGTTCGTTTGGCAATGAGGTGGTTATTGAGCTTAGATGTGCTTGGAGAGAAGGTATACTGCTTGAGATAATGGATGTGATTAGTCATCTCAATTTGGATTCTCACTCGGTACAGTCCTCGACTGGGGACGGTTTACTCTGCCTAACTGTCAATTGCAAGCATAAAGGGACAAATATCGCCACAGCAGGAATGATCCAAGAGGCACTTCAAAGAGTTGCATGGATATGTTAA'
   };
+  private tempGene: Array<GeneModel>;
+  private genes: Array<GeneModel>;
   private canvas: any;
   private context: CanvasRenderingContext2D;
   private inExon: boolean;
   private x = 30;
   private y = 150;
+  private geneID: string;
+  private pGene: string;
 
   constructor(private _router: ActivatedRoute,
     private _geneService: GeneService,
+    private _genomService: GenomService,
     ) { }
 
   ngOnInit() {
     this._router.params.subscribe(params => {
-      console.log(params['id']);
+      this.geneID = params['id'];
       // for geneId
     });
-    this._geneService.getEffects().subscribe(data => {
-      this.effects = data;
-      console.log(data);
+
+    this._genomService.getGenes().subscribe(data => {
+      this.tempGene = <Array<GeneModel>> data;
+      this.pGene = this.tempGene.filter(x => x.id === this.geneID).map(x => x.gene)[0];
+      console.log(this.tempGene.filter(x => x.id === this.geneID)[0]);
+      console.log(this.gene.startN);
+      this.gene.startN = this.tempGene.filter(x => x.id === this.geneID)[0].start;
+      this.gene.stopN = this.tempGene.filter(x => x.id === this.geneID)[0].stop;
+      this.gene.geneCode = this.tempGene.filter(x => x.id === this.geneID)[0].gene;
+      this._geneService.getEffects(this.pGene).subscribe(data => {
+        this.effects = data;
+        console.log(this.effects);
+      });
     });
+
   }
 
   ngAfterViewInit() {

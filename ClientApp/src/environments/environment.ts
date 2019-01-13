@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   regexURL: "http://127.0.0.1:5000/",
-  predictionURL: ""
+  predictionURL: "http://127.0.0.1:5000/"
 };
 
 /*
