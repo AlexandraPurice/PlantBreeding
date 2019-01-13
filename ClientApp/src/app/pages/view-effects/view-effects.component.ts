@@ -47,14 +47,11 @@ export class ViewEffectsComponent implements OnInit, AfterViewInit{
     this._genomService.getGenes().subscribe(data => {
       this.tempGene = <Array<GeneModel>> data;
       this.pGene = this.tempGene.filter(x => x.id === this.geneID).map(x => x.gene)[0];
-      console.log(this.tempGene.filter(x => x.id === this.geneID)[0]);
-      console.log(this.gene.startN);
       this.gene.startN = this.tempGene.filter(x => x.id === this.geneID)[0].start;
       this.gene.stopN = this.tempGene.filter(x => x.id === this.geneID)[0].stop;
       this.gene.geneCode = this.tempGene.filter(x => x.id === this.geneID)[0].gene;
       this._geneService.getEffects(this.pGene).subscribe(data => {
         this.effects = data;
-        console.log(this.effects);
       });
     });
 
