@@ -7,6 +7,6 @@ export class GeneModel {
 }
 
 export class EffectModel {
-    id: string;
-    gene: string
+  id: string;
+  gene: string
 }

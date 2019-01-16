@@ -9,7 +9,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class GeneService {
-
+    arrayGene: Array<any>;
   effects: Array<EffectModel> = new Array();
 
   constructor(private http: HttpClient) {
@@ -26,12 +26,11 @@ export class GeneService {
   getEffects(gene): Observable<Array<EffectModel>>  {
     const uploadData = new FormData();
     uploadData.append('gene', gene);
-    this.http.post(this.endpointPrediction + 'effects', uploadData).subscribe(z => {
-      for (var i = 0; i < z.length; i++){
-        this.effects.push({importance: z[i][0], effect: z[i][1]});
-        console.log(z[i]);
+    this.http.post(this.endpointPrediction + 'effects', uploadData).subscribe((z:any[]) => {
+      this.arrayGene = z;
+      for (var i = 0; i < this.arrayGene.length; i++){
+        this.effects.push({importance: this.arrayGene[i][0], effect: "Effect: " + this.arrayGene[i][1] + "; Importanta: " + this.arrayGene[i][0]});
       }
-      console.log(this.effects);
     });
     return of(this.effects) as Observable<Array<EffectModel>>;
   }

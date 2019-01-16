@@ -15,8 +15,8 @@ import { map } from 'rxjs/operators'
 export class ViewEffectsComponent implements OnInit, AfterViewInit{
   effects: Array<EffectModel>;
   gene = {
-    name: 'BnaA01g00030D',
-    chr: 'A01',
+    name: '',
+    chr: '',
     startN: '',
     stopN: '',
     description: '',
@@ -49,17 +49,16 @@ export class ViewEffectsComponent implements OnInit, AfterViewInit{
       this.pGene = this.tempGene.filter(x => x.id === this.geneID).map(x => x.gene)[0];
       this.gene.startN = this.tempGene.filter(x => x.id === this.geneID)[0].start;
       this.gene.stopN = this.tempGene.filter(x => x.id === this.geneID)[0].stop;
-      this.gene.geneCode = this.tempGene.filter(x => x.id === this.geneID)[0].gene;
+      this.gene.geneCode = (this.tempGene.filter(x => x.id === this.geneID)[0].gene).toUpperCase();
       this._geneService.getEffects(this.pGene).subscribe(data => {
         this.effects = data;
-        console.log(data);
+        this.processGraphic();
       });
     });
 
   }
 
   ngAfterViewInit() {
-    this.processGraphic();
   }
 
   printLegend(text, textX, textY, moveX, moveY, lineX, lineY, lineWidth, lineColor) {
