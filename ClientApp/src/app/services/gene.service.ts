@@ -27,9 +27,12 @@ export class GeneService {
     const uploadData = new FormData();
     uploadData.append('gene', gene);
     this.http.post(this.endpointPrediction + 'effects', uploadData).subscribe(z => {
-      this.effects = [];
-      this.effects.push({effect: z[0].effect});
+      for (var i = 0; i < z.length; i++){
+        this.effects.push({importance: z[i][0], effect: z[i][1]});
+        console.log(z[i]);
+      }
+      console.log(this.effects);
     });
-    return of(this.effects);
+    return of(this.effects) as Observable<Array<EffectModel>>;
   }
 }
