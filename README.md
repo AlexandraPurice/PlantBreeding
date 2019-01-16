@@ -40,7 +40,7 @@
   *  Harabagiu Paul - Create a function for genom service that sends to backend a file with txt extension (In progress) 
   *  Razvan Gabriel - Create a feature to sort each column from a generic table (In progress)
 
-### Task-uri Trello 12 Decembrie - 19 Decembrie:
+### Task-uri Trello 12 Decembrie - 16 Ianuarie:
   *  Morosanu Vladut-Haralambie - Refactoring app and resolve some bugs
   *  Cotet Roxana - Update layout for upload genom
   *  Pamant Adelin - Create pagination front-end side for view-genes table
@@ -50,6 +50,8 @@
   *  Birsanu Gabriela - Create a logo and place it inside the toolbar
   *  Pester Leonard - Create layout for "view genes" page when clicking on genom results (Done)
   *  Filibiu Anca-Madalina - Update layout for "view effects for one gene": there can be/may be various genes
-  *  Harabagiu Paul - Communicate with the other teams and establish the way for transmission and the characteristics of the information received regarding genomes, genes, and effects for genes
+  *  Harabagiu Paul - Communicate with the other teams and establish the way for transmission and the characteristics of the information                       received regarding genomes, genes, and effects for genes, 
+                    - Create a function for genom service that sends to backend a file with txt extension (Done),
+                    - Create a function for gene service that gets all effects for geneId from backed api.
   *  Razvan Gabriel - Update: Create a feature to sort each column from a generic table
  
