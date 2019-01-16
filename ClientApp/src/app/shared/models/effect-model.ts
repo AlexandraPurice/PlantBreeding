@@ -1,4 +1,4 @@
 export class EffectModel {
-  goId: string;
+  importance: number;
   effect: string;
 }

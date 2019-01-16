@@ -1,7 +1,11 @@
 import { GeneService } from './../../services/gene.service';
+import { GenomService } from './../../services/genom.service';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { EffectModel } from 'src/app/shared/models/effect-model';
+import { GeneModel } from 'src/app/shared/models/gene-model';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators'
 
 @Component({
   selector: 'app-view-effects',
@@ -11,37 +15,50 @@ import { EffectModel } from 'src/app/shared/models/effect-model';
 export class ViewEffectsComponent implements OnInit, AfterViewInit{
   effects: Array<EffectModel>;
   gene = {
-    name: 'BnaA01g00030D',
-    chr: 'A01',
-    startN: '2665',
-    stopN: '5455',
-    description: 'protein scai-like',
-    effect: 'P: termination of F-protein coupled receptor signaling pathway',
-    geneCode: 'ATGGCTACTGGAGAAAACAGAACCGTGCAGGAAAATCTAAAGAAACACCTCGCAGTTTCAGTTCGAAACATTCAATGGAGTTATGGAATATTTTGGTCTATCTCTGCTTCTCAACCAGGAGTGCTGGAATGGGGAGATGGATACTACAATGGAGACATTAAGACGAGGAAGACGATTCAAGCAGTGGAAGTCAAAGCTGACCAGTTGGGTCTTGAGAGAAGCGATCAGCTTAGAGAGCTTTATGAATCTCTCTCGGTCGCGGAATCCTCAGCCTCCGGTGGCTCTCAGGTCAGTAGACGAGCTTCCGCTACCGCTCTCTCTCCGGAAGATCTCACCGACACCGAGTGGTACTACCTAGTATGCATGTCTTTCGTCTTCAACATTGGTGAAGGAATTACCGGAGGAGCATTAGGGAACGGAGAACCAATATGGCTATGTAACGCTCATACCGCCGACAGCAAAGTCTTTACTCGCTCTCTTCTCGCTAAAAGTGCTTCGCTTCTGACAGTAGTTTGCTTCCCATTTCTTGGAGGAGTCCTTGAGATCGGCACAACCGAACATATTACAGAGGACTTTAACGTGATTCAATGCGTGAAGACATTATTCCTTGAGGCTCATCCTTATGGAACTATATCAACGAGATCTGATTATCAAGAAATATTTGATCCTTTAAACAGCGATAAGTACATTCCAACGTTTGGAACTGAAGCTTTTCCGACAACTTCTACAAGCGTGTTTGAACAAGAACTAGAGGATCATGATTCGTTCATCAACGGTGGTGGTGCGTCTCAGGTACAAAGCTGGCAGTTTGTGGGTGAAGAACTCAATAACTGCGTTCACCAACCGGTTAATTCTAGCGATTGCGTTTCCCAGACGTTTGTTGGAGGAACAACCGGAAGAGTTTCTTGTAATCCAAGAAAGAGCAGGCCTCAACGGTTAGGTCAAATCCAAGAACAGAGTAACCGTTTGAATATGGACGATGATGTTCATTACCAAGGGGTGATCTCGACAATATTCAAAACAACGCATCAGCTAGTTCTTGGACCGCAATTTCAGAACTTTGATAAGCGGTCAAGTTTCACGCGGTGGAGGCGGTTGCCATTATCAGCAAAAACATTGGGAGAGAAGTCGCAAAACATGTTAAAGAAGATTGTTTTTGAGGTTCCTCGGATGCACCAGAAGGAGTTGTTGTTACCAGACACACCTGAAGATAACATGTTTAAGGTTGGGGATGAAACCGGGAACCATGCCTTGTCCGAGAGGAAATGCCGAGAGAAGTTGAATGATCGGTTCATGACGTTGAGATCAATCATTCCTTCGATTAGTAAGATCGATAAAGTGTCGATTCTTGATGATACGATTGATTATCTTCAAGAACTGCAAAGACGGGTTCAAGAATTGGAATCTTGCCGAGAATATACCGATACAGAGATGCAAATGCCTATGAAGAGGAAGAAACCGGAGGATGAAGATGAGAGAGCATCGGCTAATTGTTTGAACACCAAGAGGAAGGAGAGTGATGTGAACGTAGGAGAAGATGAACCAGCTGATACCGGTTATGCTGGTTTAACTGATAATCTAAGGATCGGTTCGTTTGGCAATGAGGTGGTTATTGAGCTTAGATGTGCTTGGAGAGAAGGTATACTGCTTGAGATAATGGATGTGATTAGTCATCTCAATTTGGATTCTCACTCGGTACAGTCCTCGACTGGGGACGGTTTACTCTGCCTAACTGTCAATTGCAAGCATAAAGGGACAAATATCGCCACAGCAGGAATGATCCAAGAGGCACTTCAAAGAGTTGCATGGATATGTTAA'
+    name: '',
+    chr: '',
+    startN: '',
+    stopN: '',
+    description: '',
+    effect: '',
+    geneCode: ''
   };
+  private tempGene: Array<GeneModel>;
+  private genes: Array<GeneModel>;
   private canvas: any;
   private context: CanvasRenderingContext2D;
   private inExon: boolean;
   private x = 30;
   private y = 150;
+  private geneID: string;
+  private pGene: string;
 
   constructor(private _router: ActivatedRoute,
     private _geneService: GeneService,
+    private _genomService: GenomService,
     ) { }
 
   ngOnInit() {
     this._router.params.subscribe(params => {
-      console.log(params['id']);
+      this.geneID = params['id'];
       // for geneId
     });
-    this._geneService.getEffects().subscribe(data => {
-      this.effects = data;
-      console.log(data);
+
+    this._genomService.getGenes().subscribe(data => {
+      this.tempGene = <Array<GeneModel>> data;
+      this.pGene = this.tempGene.filter(x => x.id === this.geneID).map(x => x.gene)[0];
+      this.gene.startN = this.tempGene.filter(x => x.id === this.geneID)[0].start;
+      this.gene.stopN = this.tempGene.filter(x => x.id === this.geneID)[0].stop;
+      this.gene.geneCode = (this.tempGene.filter(x => x.id === this.geneID)[0].gene).toUpperCase();
+      this._geneService.getEffects(this.pGene).subscribe(data => {
+        this.effects = data;
+        this.processGraphic();
+      });
     });
+
   }
 
   ngAfterViewInit() {
-    this.processGraphic();
   }
 
   printLegend(text, textX, textY, moveX, moveY, lineX, lineY, lineWidth, lineColor) {

@@ -1,4 +1,5 @@
 import { Component} from '@angular/core';
+import { GenomService } from '../../../services/genom.service';
 
 @Component({
   selector: 'app-form',
@@ -6,11 +7,16 @@ import { Component} from '@angular/core';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent {
+  file: HTMLInputElement;
+  constructor(private _genomService:GenomService) { }
 
-  constructor() { }
- 
-  updateFile(file: HTMLInputElement) {
-    let name = file.value;
+  updateFile(file) {
+    this.file = file;
+  }
+
+  submit(file){
+      console.log(file);
+      this._genomService.sendFile(file);
   }
 
 }
