@@ -9,7 +9,6 @@
   * Iftimie Codrut
   * Birsanu Gabriela
   * Pester Leonard
-  * Filibiu Anca-Madalina
   * Harabagiu Paul
   * Razvan Gabriel
 
@@ -22,7 +21,6 @@
   *  Iftimie Codrut - Create design for "view genoms uploaded
   *  Birsanu Gabriela - Create design for menu and toolbar
   *  Pester Leonard - Create layout for "add genom" page
-  *  Filibiu Anca-Madalina - Create diagram for a general flow in our frontend app
   *  Harabagiu Paul - Create a function for genom service that gets all genoms from backed api
   *  Razvan Gabriel - For view-genom table, add a feature to sort columns
   
@@ -36,7 +34,6 @@
   *  Iftimie Codrut - Add functionality to getData() function in genom service (In progress)
   *  Birsanu Gabriela - Create a logo and place it inside the toolbar
   *  Pester Leonard - Create layout for "view genes" page when clicking on genom results (In progress)
-  *  Filibiu Anca-Madalina - Create design for "view effects for one gene" page when clicking on gene
   *  Harabagiu Paul - Create a function for genom service that sends to backend a file with txt extension (In progress) 
   *  Razvan Gabriel - Create a feature to sort each column from a generic table (In progress)
 
@@ -49,7 +46,6 @@
   *  Iftimie Codrut - Create a feature to filter genes by gene name in view-genes component
   *  Birsanu Gabriela - Create a logo and place it inside the toolbar
   *  Pester Leonard - Create layout for "view genes" page when clicking on genom results (Done)
-  *  Filibiu Anca-Madalina - Update layout for "view effects for one gene": there can be/may be various genes
   *  Harabagiu Paul - Communicate with the other teams and establish the way for transmission and the characteristics of the information                       received regarding genomes, genes, and effects for genes, 
                     - Create a function for genom service that sends to backend a file with txt extension (Done),
                     - Create a function for gene service that gets all effects for geneId from backed api.
